@@ -1,0 +1,229 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* Text-Select off */
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -moz-user-select: none;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: url("Background/Background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 85vh;
+    max-width: 100vw;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px ridge whitesmoke;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    top: 10vh;
+    cursor: default;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo img {
+    width: 10vw;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu ul li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #1DB954;
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+}
+
+.menu ul li:hover {
+    background-color: #222222;
+    padding-left: 30px;
+}
+
+.menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    align-items: center;
+}
+
+.menu ul li a i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* Main Content Styles */
+.main-content {
+    position: relative;
+    flex: 1;
+    padding: 50px;
+    background-color: rgba(36, 34, 34, 0.8);
+    border-left: 2px ridge whitesmoke;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    overflow-y: scroll;
+}
+
+.main-content::-webkit-scrollbar {
+    width: 0px;
+}
+
+/* Header Styles */
+.header {
+    margin-bottom: 30px;
+}
+
+.header h2 {
+    font-size: 28px;
+    color: whitesmoke;
+    font-weight: 600;
+    border-bottom: 2px ridge #1DB954;
+    padding-bottom: 10px;
+}
+
+/* Info Box Styles */
+.info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.info div {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    border: 2px ridge whitesmoke;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info div .icon {
+    background-color: #161616;
+    border-radius: 50%;
+    padding: 20px;
+    color: #fff;
+    font-size: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: scale(0.90);
+}
+
+.info div .icon:hover {
+    transform: scale(1);
+    box-shadow: 0 0 15px rgba(121, 121, 121, 0.4);
+}
+
+.info div .icon img {
+    width: 3vw;
+    height: auto;
+}
+
+.info div .details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-left: 20px;
+}
+
+.info div .details:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(121, 121, 121, 0.8);
+}
+
+.info div .details p {
+    font-size: 16px;
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+.info div .details h3 {
+    font-size: 30px;
+    color: #2c3e50;
+    margin-top: 5px;
+    font-weight: 700;
+}
+
+.info div h4 {
+    position: relative;
+    top: 3.4vw;
+    right: 4rem;
+}
+
+.info .albums h4 {
+    position: relative;
+    top: 3.4vw;
+    right: 4.3rem;
+}
+
+.info .languages h4 {
+    position: relative;
+    top: 3.4vw;
+    right: 4.8rem;
+}
+
+.info .playlists h4 {
+    position: relative;
+    top: 3.4vw;
+    right: 4.3rem;
+}
+
+/* recent song section */
+.recently-added-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.recently-added-table th,
+.recently-added-table td {
+    padding: 15px;
+    text-align: left;
+}
+
+.recently-added-table th {
+    background-color: #161616;
+    color: white;
+}
+
+.recently-added-table tr:hover {
+    background-color: #000000d6;
+    color: white;
+    transition: all 0.3s ease;
+}

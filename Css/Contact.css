@@ -1,0 +1,438 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+    text-shadow: 0px 2px 1.5px black;
+    scroll-behavior: smooth !important;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -moz-user-select: none;
+}
+
+#dataset {
+    display: none;
+}
+
+body {
+    background-image: url("Background/Background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    color: white;
+}
+
+body::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #161616;
+    border: 1px ridge white;
+    height: 62px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    z-index: 10;
+}
+
+.navbar-logo {
+    height: 2.5vw;
+    width: auto;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.navbar-list {
+    width: 100%;
+    text-align: right;
+    padding-right: 2rem;
+}
+
+.navbar-list li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.navbar-list:hover>:not(:hover) {
+    filter: blur(1px);
+    opacity: 0.1;
+    transition: filter 0.3s ease 0.1s, opacity 0.3s ease;
+}
+
+.navbar-list li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2vw;
+    padding: 1vw 1vw;
+    border-radius: 30px;
+    transition: 0.3s ease;
+}
+
+.navbar-list li a:hover {
+    transition: 0.3s ease;
+    font-size: 1.2vw;
+    background-color: #04af6b;
+    padding: 0.5vw 1vw;
+}
+
+.profile-dropdown {
+    position: relative;
+    left: 0vw;
+    width: fit-content;
+}
+
+.profile-dropdown #username {
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.profile-dropdown-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 1rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    width: 115px;
+    border-radius: 50px;
+    color: #393e46;
+    cursor: pointer;
+    border: 2px ridge white;
+    transition: all 0.3s ease;
+}
+
+.profile-dropdown-btn:hover {
+    border: 2px ridge #227c70;
+    box-shadow: 0px 2px 8px 0px rgba(34, 124, 112, 0.2);
+}
+
+.profile-img {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: url("Background/Meet-1.jpeg") no-repeat center center;
+    background-size: cover;
+}
+
+.profile-dropdown-btn span {
+    margin: 0 0.5rem;
+    margin-right: 0;
+}
+
+.profile-dropdown-list {
+    position: absolute;
+    top: 68px;
+    width: 220px;
+    right: 0;
+    background-color: black;
+    border-radius: 10px;
+    max-height: 0;
+    overflow: hidden;
+    box-shadow: 0px 2px 8px 0px rgba(34, 124, 112, 0.2);
+    transition: max-height 0.5s;
+}
+
+.profile-dropdown-list hr {
+    border: 0.5px ridge #1db954;
+}
+
+.profile-dropdown-list.active {
+    max-height: 500px;
+}
+
+.profile-dropdown-list-item {
+    padding: 0.5rem 0rem 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.profile-dropdown-list-item a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: white;
+}
+
+.profile-dropdown-list-item a i {
+    margin-right: 0.8rem;
+    font-size: 1.1rem;
+    width: 2.3rem;
+    height: 2.3rem;
+    background-color: #1db954;
+    color: black;
+    line-height: 2.3rem;
+    text-align: center;
+    margin-right: 1rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.profile-dropdown-list-item:hover {
+    transition: all 0.3s ease;
+    padding-left: 1.5rem;
+    background-color: rgba(29, 185, 84, 0.3);
+}
+
+/* Main Content */
+.container {
+    max-width: 700px;
+    height: 85vh;
+    margin: 3vw auto;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px ridge whitesmoke;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact-header h1 {
+    margin: 0;
+    color: grey;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-form label {
+    margin-bottom: 5px;
+    color: grey;
+    font-weight: 600;
+    width: 100%;
+    max-width: 500px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: transparent;
+    color: white;
+    font-size: 1.5vw;
+    border: none;
+    border-bottom: 1px ridge whitesmoke;
+    border-left: 1px ridge whitesmoke;
+    border-right: 1px ridge whitesmoke;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    box-shadow: 0.5px 3px 3px lightseagreen;
+}
+
+.contact-form .btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 500px;
+    position: absolute;
+    left: 50%;
+    bottom: 3vw;
+    transform: translateX(-50%);
+    transition: all 0.3s ease-in-out;
+}
+
+.contact-form .btn:hover {
+    color: black;
+    width: 20%;
+    border-radius: 30px;
+    background: rgba(0, 255, 251, 0.8);
+    box-shadow: 0 2px 5px rgba(0, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.social-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-links a {
+    margin: 0 10px;
+    color: #333;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.social-links a i {
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover i {
+    color: #04af6b;
+    transition: all 0.3s ease;
+    scale: 1.2;
+}
+
+/* Footer */
+
+
+footer {
+    position: absolute;
+    top: 100%;
+    background-color: #222;
+    color: #fff;
+    font-size: 0.9rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    top: 2vh;
+}
+
+footer>.fcontainer {
+    max-width: 1500px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 8px 50px;
+    position: relative;
+    top: 2vw;
+}
+
+footer .footer-section {
+    flex: 1;
+    padding: 0 15px;
+    margin-bottom: 30px;
+    position: relative;
+    left: 1vw;
+}
+
+footer h3 {
+    font-size: 1.6rem;
+    color: #f1f1f1;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+footer p {
+    font-size: 1rem;
+    color: #bbb;
+    line-height: 1.6;
+    text-align: center;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 2vw;
+    justify-content: center;
+}
+
+footer ul:hover>:not(:hover) {
+    filter: blur(1px);
+    opacity: 0.3;
+    transition: filter 0.3s ease 0.1s, opacity 0.3s ease;
+}
+
+footer ul li {
+    margin: 10px 0;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #ddd;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+    color: #1db954;
+}
+
+footer .social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+footer .social-icon {
+    font-size: 1.5rem;
+    margin: 0 10px;
+    color: #ddd;
+    transition: color 0.3s ease;
+}
+
+.social-icons:hover>:not(:hover) {
+    filter: blur(1px);
+    opacity: 0.3;
+    transition: filter 0.3s ease 0.1s, opacity 0.3s ease;
+}
+
+footer .social-icon:hover {
+    color: #1db954;
+}
+
+footer .social-icons i {
+    padding: 10px;
+    border-radius: 20px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+footer .social-icons i:hover {
+    background-color: #0c692c;
+    transform: scale(1.1);
+}
+
+footer .copyright {
+    background-color: #111;
+    color: #aaa;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+footer .copyright p {
+    margin-left: 3vw;
+    font-size: 0.9rem;
+}
+
+footer .copyright a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+footer .copyright a:hover {
+    color: #1db954;
+}

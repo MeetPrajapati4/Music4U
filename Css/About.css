@@ -1,0 +1,461 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+    text-shadow: 0px 2px 1.5px black;
+    scroll-behavior: smooth !important;
+    /* Text-Select off */
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -moz-user-select: none;
+}
+
+body {
+    background: url("Background/Background.png") center/cover no-repeat fixed;
+    width: 100%;
+    height: 100vh;
+    color: white;
+    overflow-x: hidden !important;
+}
+
+body::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #161616;
+    border: 1px ridge white;
+    height: 62px;
+    width: 99.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    z-index: 10;
+}
+
+.navbar-logo {
+    height: 2.5vw;
+    width: auto;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.navbar-list {
+    width: 100%;
+    text-align: right;
+    padding-right: 2rem;
+}
+
+.navbar-list li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.navbar-list:hover>:not(:hover) {
+    filter: blur(1px);
+    opacity: 0.1;
+    transition: filter 0.3s ease 0.1s, opacity 0.3s ease;
+}
+
+.navbar-list li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2vw;
+    padding: 1vw 1vw;
+    border-radius: 30px;
+    transition: 0.3s ease;
+}
+
+.navbar-list li a:hover {
+    transition: 0.3s ease;
+    font-size: 1.2vw;
+    background-color: #04af6b;
+    padding: 0.5vw 1vw;
+}
+
+.profile-dropdown {
+    position: relative;
+    left: 0vw;
+    width: fit-content;
+}
+
+.profile-dropdown #username {
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.profile-dropdown-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 1rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    width: 115px;
+    border-radius: 50px;
+    color: #393e46;
+    cursor: pointer;
+    border: 2px ridge white;
+    transition: all 0.3s ease;
+}
+
+.profile-dropdown-btn:hover {
+    border: 2px ridge #227c70;
+    box-shadow: 0px 2px 8px 0px rgba(34, 124, 112, 0.2);
+}
+
+.profile-img {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: url("Background/Meet-1.jpeg") no-repeat center center;
+    background-size: cover;
+}
+
+.profile-dropdown-btn span {
+    margin: 0 0.5rem;
+    margin-right: 0;
+}
+
+.profile-dropdown-list {
+    position: absolute;
+    top: 68px;
+    width: 220px;
+    right: 0;
+    background-color: black;
+    border-radius: 10px;
+    max-height: 0;
+    overflow: hidden;
+    box-shadow: 0px 2px 8px 0px rgba(34, 124, 112, 0.2);
+    transition: max-height 0.5s;
+}
+
+.profile-dropdown-list hr {
+    border: 0.5px ridge #1db954;
+}
+
+.profile-dropdown-list.active {
+    max-height: 500px;
+}
+
+.profile-dropdown-list-item {
+    padding: 0.5rem 0rem 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.profile-dropdown-list-item a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: white;
+}
+
+.profile-dropdown-list-item a i {
+    margin-right: 0.8rem;
+    font-size: 1.1rem;
+    width: 2.3rem;
+    height: 2.3rem;
+    background-color: #1db954;
+    color: black;
+    line-height: 2.3rem;
+    text-align: center;
+    margin-right: 1rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.profile-dropdown-list-item:hover {
+    transition: all 0.3s ease;
+    padding-left: 1.5rem;
+    background-color: rgba(29, 185, 84, 0.3);
+}
+
+/* Container Styles */
+.container {
+    max-width: 70vw;
+    margin: 2rem auto;
+    padding: 2rem 1rem;
+    height: 95vh;
+}
+
+.profile-card {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    border: 1px solid #38ff9c;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5) inset;
+    padding: 2rem;
+    height: calc(110vh - 10rem);
+    text-align: center;
+    transition: all 0.3s ease;
+    scroll-behavior: smooth !important;
+}
+
+.profile-card::-webkit-scrollbar {
+    width: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.profile-card::-webkit-scrollbar-thumb {
+    background-color: #38ff9c;
+    border-radius: 0.25rem;
+    border: 2px solid #2b2b2b;
+}
+
+.profile-card::-webkit-scrollbar-track {
+    border-radius: 0.25rem;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.profile-pic {
+    width: 100%;
+    height: 15vw;
+    border: 5px solid #38ff9c;
+    box-shadow: 0 0 20px rgba(56, 255, 156, 0.3);
+    margin-bottom: 1.5rem;
+}
+
+.data h2 {
+    color: #38ff9c;
+}
+
+.data span {
+    color: #a0a0a0;
+    font-size: 1rem;
+}
+
+.connect {
+    text-align: center;
+    margin: 1vw 0 1vw;
+    color: #e0e0e0;
+}
+
+/* Social Button Styles */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    color: #38ff9c;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid #38ff9c;
+    transform: rotateX(60deg);
+}
+
+.btn:hover {
+    transform: rotatex(0deg);
+    background-color: #38ff9c;
+    color: #121212;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(56, 255, 156, 0.5);
+}
+
+.btn i {
+    font-size: 1.2rem;
+}
+
+/* About Section Styles */
+.about {
+    text-align: left;
+}
+
+.about h2 {
+    border-bottom: 2px solid #38ff9c;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    color: #38ff9c;
+}
+
+.about p {
+    margin-bottom: 1rem;
+    color: #a0a0a0;
+}
+
+.team-members {
+    list-style-type: none;
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.team-members li {
+    position: relative;
+}
+
+.team-members li::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background: url('Icons/Forward.png') no-repeat center center;
+    background-size: contain;
+}
+
+
+@keyframes looks {
+    0% {
+        transform: scale(2);
+        opacity: 0.25;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: #fff;
+    font-size: 0.9rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+footer>.fcontainer {
+    max-width: 1500px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 8px 50px;
+    position: relative;
+    top: 2vw;
+}
+
+footer .footer-section {
+    flex: 1;
+    padding: 0 15px;
+    margin-bottom: 30px;
+    position: relative;
+    left: 1vw;
+}
+
+footer h3 {
+    font-size: 1.6rem;
+    color: #f1f1f1;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+footer p {
+    font-size: 1rem;
+    color: #bbb;
+    line-height: 1.6;
+    text-align: center;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 2vw;
+    justify-content: center;
+}
+
+footer ul:hover>:not(:hover) {
+    filter: blur(1px);
+    opacity: 0.3;
+    transition: filter 0.3s ease 0.1s, opacity 0.3s ease;
+}
+
+footer ul li {
+    margin: 10px 0;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #ddd;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+    color: #1db954;
+}
+
+footer .social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+footer .social-icon {
+    font-size: 1.5rem;
+    margin: 0 10px;
+    color: #ddd;
+    transition: color 0.3s ease;
+}
+
+.social-icons:hover>:not(:hover) {
+    filter: blur(1px);
+    opacity: 0.3;
+    transition: filter 0.3s ease 0.1s, opacity 0.3s ease;
+}
+
+footer .social-icon:hover {
+    color: #1db954;
+}
+
+footer .social-icons i {
+    padding: 10px;
+    border-radius: 20px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+footer .social-icons i:hover {
+    background-color: #0c692c;
+    transform: scale(1.1);
+}
+
+footer .copyright {
+    background-color: #111;
+    color: #aaa;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+footer .copyright p {
+    margin-left: 3vw;
+    font-size: 0.9rem;
+}
+
+footer .copyright a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+footer .copyright a:hover {
+    color: #1db954;
+}
